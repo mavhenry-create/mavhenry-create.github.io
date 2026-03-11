@@ -12,6 +12,10 @@ a:hover {
   color: gray;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --fluid-min-width: 320;
   --fluid-max-width: 1200;
@@ -25,16 +29,23 @@ a:hover {
     (var(--fluid-screen) - var(--fluid-min-width) * 1px) /
       (var(--fluid-max-width) - var(--fluid-min-width))
   );
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-primary: #1a1a1a;
+  --color-accent: #c41e3a;
+  --color-light-bg: #f5f5f5;
+  --color-border: #e0e0e0;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-sans);
   margin: auto;
   padding: 0;
   box-sizing: border-box;
   justify-content: center;
   text-align: center;
-  background-color: rgb(255, 253, 253);
+  background-color: var(--color-light-bg);
+  color: var(--color-primary);
   font-size: clamp(
     var(--fluid-min-size) * 1px,
     calc(
@@ -43,8 +54,18 @@ body {
     ),
     var(--fluid-max-size) * 1px
   );
+  margin-left: clamp(100px, 15vw, 200px);
+  margin-right: clamp(100px, 15vw, 200px);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+}
 
 body::before,
 body::after {
@@ -71,15 +92,14 @@ body::after {
 }
 
 #logo-header {
-  background-color: #f8f8f8;
+  background-color: var(--color-light-bg);
   padding: 10px 0;
   text-align: center;
-  width: 85%;
+  width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  left: 170px;
 }
 
 #information {
@@ -114,6 +134,29 @@ li {
 #social-media {
   grid-area: social-media;
   text-align: left;
+}
+
+.social-link {
+  display: inline-block;
+  margin: 0 12px;
+  transition: all 0.3s ease;
+  color: var(--color-primary);
+}
+
+.social-link:hover {
+  transform: scale(1.15);
+}
+
+a[href*="facebook"]:hover {
+  color: #1877f2;
+}
+
+a[href*="instagram"]:hover {
+  color: #e4405f;
+}
+
+a[href*="linkedin"]:hover {
+  color: #0a66c2;
 }
 
 #name {
@@ -156,15 +199,36 @@ li {
 
 nav a {
   margin: 0 15px;
-  font-weight: bold;
-  color: black;
+  font-weight: 600;
+  color: var(--color-primary);
   font-size: 1.2rem;
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+  border-bottom: 3px solid transparent;
 }
 
 nav a:hover {
   color: white;
-  background-color: black;
-  border-radius: 5px;
+  background-color: var(--color-primary);
+  border-bottom-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(196, 30, 58, 0.25);
+}
+
+nav a.active {
+  color: white;
+  background-color: var(--color-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+#gallery-overview {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
 }
 
 .gallery-grid {
@@ -179,13 +243,15 @@ nav a:hover {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-border);
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s;
+  transform: scale(1.05) translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 figcaption {
@@ -209,18 +275,33 @@ figcaption {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
+}
+
+#company-history h2 {
+  font-size: clamp(1.4rem, 1.2rem + 2vw, 2rem);
 }
 
 #our-mission {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
+}
+
+#our-mission h2 {
+  font-size: clamp(1.4rem, 1.2rem + 2vw, 2rem);
 }
 
 #our-team {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
+}
+
+#our-team h2 {
+  font-size: clamp(1.4rem, 1.2rem + 2vw, 2rem);
 }
 
 #introduction {
@@ -239,8 +320,9 @@ figcaption {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  font-size: clamp(1rem, 0.8rem + 1vw, 1.4rem);
+  font-size: clamp(1rem, 1rem + 1vw, 1.4rem);
   padding: clamp(0.5rem, 2vw, 1rem);
+  font-style: bold;
 }
 #services-overview h2 {
   text-align: center;
@@ -291,9 +373,16 @@ hr {
 
 .contact-info,
 .contact-form {
-  background-color: #f9f9f9;
-  padding: 20px;
+  background-color: var(--color-light-bg);
+  padding: 28px;
   border-radius: 10px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-info:hover,
+.contact-form:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .contact-info h3,
@@ -305,22 +394,50 @@ hr {
 input,
 textarea {
   width: 90%;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border: 2px solid var(--color-border);
   border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
 }
 
 input[type="submit"] {
-  background-color: black;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   cursor: pointer;
-  padding: 12px;
+  padding: 14px 32px;
   border-radius: 6px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 input[type="submit"]:hover {
-  background-color: #800000;
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(196, 30, 58, 0.25);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
 }
 
 .hours-lists {
@@ -347,8 +464,13 @@ input[type="submit"]:hover {
   box-sizing: border-box;
 }
 
+#contact-us h2 {
+  font-size: clamp(1.4rem, 1.2rem + 2vw, 2rem);
+  text-align: center;
+}
+
 #contact-us p {
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
   width: 60%;
   margin-left: auto;
   margin-right: auto;
@@ -356,12 +478,13 @@ input[type="submit"]:hover {
 }
 
 #services-motto h2 {
-  font-size: 1.4rem;
+  font-size: clamp(1.4rem, 1.2rem + 2vw, 2rem);
+  text-align: center;
   padding-top: 10px;
 }
 
 #services-motto p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -375,6 +498,15 @@ input[type="submit"]:hover {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  font-size: clamp(1rem, 1rem + 2vw, 1.5rem);
+}
+
+#residential-services,
+#commercial-services {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1rem, 1rem + 2vw, 1.8rem);
 }
 
 /* Small screens and mobile devices */
@@ -397,7 +529,6 @@ input[type="submit"]:hover {
 
   header {
     padding: 12px 8px;
-    
   }
 
   /* Stack the information area vertically */
@@ -503,21 +634,67 @@ input[type="submit"]:hover {
       "service-area"
       "social-media";
     width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
     gap: 15px;
     padding: 15px;
     margin: 10px auto;
     text-align: center;
+    overflow: visible;
   }
 
   footer #information > div {
     margin: 0;
     padding: 8px;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
   }
 
-  #content {
-    padding: max(10px, 2%);
+  #address {
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    display: block;
+  }
+
+  /* FIX 2: Services text not getting cut off */
+  #services-overview {
+    width: 90%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  #services-overview ul {
+    padding-left: 20px;
+    text-align: left;
+  }
+
+  #services-overview li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  #services-details ul {
+    grid-template-columns: 1fr;
+    width: 90%;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  /* FIX 3: Contact us text scaling */
+  #contact-us p {
+    font-size: 1rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  #contact-us h2 {
+    font-size: 1.4rem;
   }
 }
 
