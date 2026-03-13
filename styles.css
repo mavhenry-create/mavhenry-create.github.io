@@ -649,8 +649,8 @@ input[type="submit"]:active {
 
   /* Main content sizing */
   #content {
-    width: 100%;
-    margin: 15px 0;
+    width: 95%;
+    margin: 15px auto;
     padding: 15px;
     border-radius: 0;
   }
@@ -667,8 +667,8 @@ input[type="submit"]:active {
 
   /* Navigation */
   #nav-bar {
-    width: 100%;
-    margin: 10px 0;
+    width: 95%;
+    margin: 10px auto;
     padding: 0 10px;
     box-sizing: border-box;
     overflow-x: auto;
@@ -688,10 +688,12 @@ input[type="submit"]:active {
   #introduction,
   #why-choose-us,
   #services-overview {
-    width: 100%;
+    width: 95%;
     font-size: 1rem;
     padding: 0 15px;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #gallery-overview h2,
@@ -734,9 +736,10 @@ input[type="submit"]:active {
 
   /* Services */
   #services-overview {
-    width: 100%;
+    width: 95%;
     font-size: 0.95rem;
     padding: 15px;
+    box-sizing: border-box;
   }
 
   #services-overview ul {
@@ -746,24 +749,28 @@ input[type="submit"]:active {
 
   #services-details ul {
     grid-template-columns: 1fr;
-    width: 100%;
+    width: 95%;
     gap: 10px;
     font-size: 0.95rem;
     padding: 0 15px;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #services-motto p {
     font-size: 0.95rem;
-    width: 100%;
+    width: 95%;
   }
 
   #residential-services,
   #commercial-services {
-    width: 100%;
+    width: 95%;
     font-size: 1rem;
     padding: 0 15px;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Images */
@@ -776,8 +783,8 @@ input[type="submit"]:active {
 
   /* Contact form */
   #contact {
-    width: 100%;
-    margin: 0;
+    width: 95%;
+    margin: 0 auto;
     padding: 15px;
   }
 
@@ -793,7 +800,7 @@ input[type="submit"]:active {
 
   input,
   textarea {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     font-size: 16px;
   }
@@ -814,8 +821,8 @@ input[type="submit"]:active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin: 0;
+    width: 95%;
+    margin: 0 auto;
     padding: 15px;
     gap: 12px;
     box-sizing: border-box;
