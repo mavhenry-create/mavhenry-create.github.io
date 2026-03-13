@@ -926,6 +926,177 @@ input[type="submit"]:active {
   }
 }
 
+@media screen and (max-width: 480px) {
+  /* Tighter spacing */
+  body {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  #logo-image {
+    max-width: 200px;
+    height: 65px;
+  }
+
+  /* Navigation */
+  #nav-bar {
+    width: 98%;
+    margin: 8px auto;
+    padding: 0 5px;
+  }
+
+  nav a {
+    margin: 0 1px;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  /* Main sections */
+  #gallery-overview,
+  #company-history,
+  #our-mission,
+  #our-team,
+  #introduction,
+  #why-choose-us,
+  #services-overview {
+    width: 98%;
+    padding: 0 10px;
+  }
+
+  #gallery-overview h2,
+  #company-history h2,
+  #our-mission h2,
+  #our-team h2,
+  #services-motto h2,
+  #contact-us h2 {
+    font-size: 1.1rem;
+    margin: 10px 0 8px 0;
+  }
+
+  #gallery-overview p,
+  #company-history p,
+  #our-mission p,
+  #our-team p,
+  #introduction p,
+  #contact-us p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Content box */
+  #content {
+    width: 98%;
+    margin: 10px auto;
+    padding: 12px;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .gallery-grid img {
+    height: 100px;
+  }
+
+  /* Services */
+  #services-overview {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  #services-overview h2 {
+    font-size: 1.1rem;
+  }
+
+  #services-overview ul {
+    padding-left: 20px;
+  }
+
+  #services-details ul {
+    width: 98%;
+    gap: 8px;
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  #services-motto p {
+    font-size: 0.9rem;
+    width: 98%;
+  }
+
+  #residential-services,
+  #commercial-services {
+    width: 98%;
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  /* Images */
+  #intro-image,
+  #team-photo img {
+    margin: 12px 0;
+  }
+
+  /* Contact form */
+  #contact {
+    width: 98%;
+    padding: 12px;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 12px;
+  }
+
+  .contact-info h3,
+  .contact-form h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  input,
+  textarea {
+    width: 98%;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  /* Footer */
+  footer #information {
+    width: 98%;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  footer #name {
+    font-size: 0.95rem;
+  }
+
+  footer #address,
+  footer #hours,
+  footer #service-area {
+    font-size: 0.8rem;
+  }
+
+  footer #hours p,
+  footer #service-area p {
+    font-size: 0.85rem;
+  }
+
+  footer .social-link i {
+    font-size: 1.2rem;
+  }
+
+  /* Misc */
+  hr {
+    width: 95%;
+  }
+}
+
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   /* Tablet adjustments */
   body {
