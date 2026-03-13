@@ -377,29 +377,6 @@ nav a.active {
   background-color: var(--color-primary);
 }
 
-@media screen and (max-width: 768px) {
-  .modal-close {
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-  }
-
-  #modal-image {
-    max-width: 95%;
-    max-height: 70vh;
-  }
-
-  .modal-nav {
-    gap: 10px;
-  }
-
-  .modal-prev,
-  .modal-next {
-    padding: 8px 12px;
-    font-size: 16px;
-  }
-}
-
 figcaption {
   text-align: center;
   font-style: italic;
@@ -657,168 +634,227 @@ input[type="submit"]:active {
 
 /* Small screens and mobile devices */
 @media screen and (max-width: 768px) {
+  /* Reset body margins for mobile */
+  body {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 16px;
+  }
+
+  /* Hide side decorative images */
   body::before,
   body::after {
     display: none;
   }
 
+  /* Main content sizing */
   #content {
-    width: 95%;
-    margin: 10px auto;
-  }
-  body {
-    font-size: 16px;
-  }
-
-  header {
-    padding: 12px 8px;
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 0;
   }
 
-  /* NON-FOOTER #information */
-  #information:not(footer #information) {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "name"
-      "address"
-      "hours"
-      "service-area"
-      "social-media";
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    gap: 8px;
-    padding: 10px 0;
+  #logo-header {
+    padding: 15px;
+    width: 100%;
   }
 
-  /* Make content blocks full width-ish for mobile */
-  #content,
+  #logo-image {
+    max-width: 250px;
+    height: 80px;
+  }
+
+  /* Navigation */
+  #nav-bar {
+    width: 100%;
+    margin: 10px 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+
+  nav a {
+    margin: 0 8px;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  /* Main sections */
+  #gallery-overview,
   #company-history,
   #our-mission,
   #our-team,
   #introduction,
   #why-choose-us,
-  #services-overview,
-  #logo-header {
-    width: 98%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: hidden;
-  }
-
-  /* Nav becomes horizontally scrollable if it overflows */
-  #nav-bar {
+  #services-overview {
     width: 100%;
-    padding: 0 8px;
-    box-sizing: border-box;
-    overflow-x: auto;
-  }
-  nav a {
-    display: inline-block;
-    margin: 0 8px;
     font-size: 1rem;
-    padding: 6px 8px;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
 
-  /* Gallery and images scale down */
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-  }
-  .gallery-grid img {
-    height: 140px;
-  }
-
-  /* Hours: stack day and time on small screens and keep times contained */
-  .hours-lists,
-  .hours-list {
-    grid-template-columns: 1fr;
-    gap: 6px 10px;
-  }
-  .day {
-    text-align: left;
-  }
-  .hours {
-    text-align: left;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-wrap: break-word;
+  #gallery-overview h2,
+  #company-history h2,
+  #our-mission h2,
+  #our-team h2,
+  #services-motto h2,
+  #contact-us h2 {
+    font-size: 1.3rem;
   }
 
-  /* Contact grid stacks into a single column */
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  #gallery-overview p,
+  #company-history p,
+  #our-mission p,
+  #our-team p {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
-  input,
-  textarea {
+
+  #introduction p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  #contact-us p {
+    font-size: 0.95rem;
     width: 100%;
   }
 
-  /* Make intro/team images responsive */
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .gallery-grid img {
+    height: 120px;
+  }
+
+  /* Services */
+  #services-overview {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+
+  #services-overview ul {
+    padding-left: 25px;
+    text-align: left;
+  }
+
+  #services-details ul {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  #services-motto p {
+    font-size: 0.95rem;
+    width: 100%;
+  }
+
+  #residential-services,
+  #commercial-services {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  /* Images */
   #intro-image,
   #team-photo img {
     max-width: 100%;
     height: auto;
+    margin: 15px 0;
   }
 
-  /* Misc adjustments */
-  hr {
-    width: 95%;
-  }
-
-  /* FOOTER - COMPACT SINGLE COLUMN */
-  footer #information {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "name"
-      "address"
-      "hours"
-      "service-area"
-      "social-media";
-    width: 95%;
-    margin: 10px auto;
+  /* Contact form */
+  #contact {
+    width: 100%;
+    margin: 0;
     padding: 15px;
-    gap: 10px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 15px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Horizontal rule */
+  hr {
+    width: 90%;
+  }
+
+  /* FOOTER - Mobile */
+  footer #information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    gap: 12px;
     box-sizing: border-box;
   }
 
   footer #name {
-    grid-area: name;
-    font-size: 16px;
-    margin: 0 0 5px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin: 0;
   }
 
   footer #address {
-    grid-area: address;
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 0.85rem;
     text-align: center;
     padding: 0;
     margin: 0;
+    border: none;
+    width: 100%;
   }
 
-  footer #address br {
+  footer #address a {
     display: inline;
-    content: " ";
-  }
-
-  footer #address br:after {
-    content: " ";
   }
 
   footer #hours {
-    grid-area: hours;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-align: center;
     padding: 0;
     margin: 0;
+    border: none;
+    width: 100%;
   }
 
   footer #hours p {
     margin: 0 0 5px 0;
     font-weight: 600;
+    font-size: 0.9rem;
   }
 
   footer #hours ul {
@@ -826,102 +862,74 @@ input[type="submit"]:active {
     padding: 0;
   }
 
+  footer #hours li {
+    padding: 2px 0;
+  }
+
   footer #service-area {
-    grid-area: service-area;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-align: center;
     padding: 0;
     margin: 0;
+    border: none;
+    width: 100%;
   }
 
   footer #service-area p {
     margin: 0 0 5px 0;
     font-weight: 600;
+    font-size: 0.9rem;
   }
 
   footer #service-area ul {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  footer #service-area li {
+    padding: 0;
   }
 
   footer #social-media {
-    grid-area: social-media;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
     margin: 0;
     padding: 0;
+    border: none;
+    width: 100%;
   }
 
   footer #social-media p {
-    margin: 0;
-    font-weight: 600;
-    font-size: 0.9rem;
-    width: 100%;
-    text-align: center;
+    display: none;
   }
 
   footer .social-link {
     margin: 0 !important;
-    font-size: 0.95rem;
   }
 
-  /* FIX 2: Services text not getting cut off */
-  #services-overview {
-    width: 90%;
-    font-size: 1rem;
-    padding: 12px;
-  }
-
-  #services-overview ul {
-    padding-left: 20px;
-    text-align: left;
-  }
-
-  #services-overview li {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  #services-details ul {
-    grid-template-columns: 1fr;
-    width: 90%;
-    gap: 10px;
-    font-size: 1rem;
-  }
-
-  /* FIX 3: Contact us text scaling */
-  #contact-us p {
-    font-size: 1rem;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-  }
-
-  #contact-us h2 {
-    font-size: 1.4rem;
+  footer .social-link i {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* Adjust base font size for tablet */
+  /* Tablet adjustments */
   body {
-    font-size: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
   /* Optimize information grid for tablet */
   #information {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      "name address hours"
-      "service-area social-media .";
-    width: 90%;
-    height: auto;
-    gap: 20px;
-    padding: 15px;
+    gap: 10px;
+    padding: 12px;
   }
 
   /* Adjust content widths for tablet */
@@ -931,78 +939,73 @@ input[type="submit"]:active {
   #our-team,
   #introduction,
   #why-choose-us {
-    width: 85%;
+    width: 90%;
   }
 
   /* Adjust services overview for tablet */
   #services-overview {
-    width: 25%;
-    font-size: 1.2rem;
+    width: 90%;
+    font-size: 1rem;
   }
 
   /* Optimize gallery grid for tablet */
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
   }
 
   /* Adjust font sizes for readability */
   #introduction p {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
 
   #why-choose-us p,
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   #services-motto h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   #services-motto p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     width: 90%;
   }
 
   /* Adjust contact section for tablet */
   #contact {
     width: 90%;
-    padding: 30px;
+    padding: 20px;
   }
 
   .contact-grid {
-    gap: 30px;
+    gap: 20px;
   }
 
-  /* Adjust contact text for tablet */
   #contact-us p {
-    font-size: 1.3rem;
-    width: 70%;
+    font-size: 1rem;
+    width: 85%;
   }
 
   /* Service details layout for tablet */
   #services-details ul {
     grid-template-columns: repeat(2, 1fr);
-    width: 80%;
-    gap: 15px 25px;
+    width: 90%;
+    gap: 12px;
+    font-size: 0.95rem;
   }
 
   /* Footer information for tablet */
   footer #information {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      "name address hours"
-      "service-area social-media .";
-    width: 90%;
-    gap: 20px;
-    padding: 15px;
+    gap: 8px;
+    padding: 12px;
   }
 
   /* Adjust images for tablet */
   #intro-image,
   #team-photo img {
-    max-width: 500px;
+    max-width: 450px;
   }
 
   /* Navigation adjustments */
@@ -1011,8 +1014,8 @@ input[type="submit"]:active {
   }
 
   nav a {
-    font-size: 1.1rem;
-    margin: 0 12px;
+    font-size: 1rem;
+    margin: 0 10px;
   }
 }
 
